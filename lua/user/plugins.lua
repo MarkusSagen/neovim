@@ -85,7 +85,19 @@ return packer.startup(function(use)
   use { "RRethy/vim-illuminate", commit = "a2e8476af3f3e993bb0d6477438aad3096512e42" }
 
   -- Telescope
-  use { "nvim-telescope/telescope.nvim", commit = "76ea9a898d3307244dce3573392dcf2cc38f340f" }
+  use({
+    "nvim-telescope/telescope.nvim",
+    requires = {
+      { "nvim-lua/plenary.nvim" },
+      { "kdheepak/lazygit.nvim" },
+      { "nvim-telescope/telescope-file-browser.nvim" },
+    },
+    commit = "76ea9a898d3307244dce3573392dcf2cc38f340f",
+    config = function()
+      require("telescope").load_extension("lazygit")
+      require("telescope").load_extension("file_browser")
+    end
+  })
 
   -- Treesitter
   use {

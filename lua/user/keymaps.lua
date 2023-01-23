@@ -81,3 +81,12 @@ keymap("n", "<leader>dt", "<cmd>lua require'dap'.terminate()<cr>", opts)
 
 -- Lsp
 keymap("n", "<leader>lf", "<cmd>lua vim.lsp.buf.format{ async = true }<cr>", opts)
+
+
+-- Telescope
+vim.api.nvim_set_keymap(
+  "n",
+  "<space>fF",
+  ":Telescope file_browser",
+  { noremap = true }
+)
